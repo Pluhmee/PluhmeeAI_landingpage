@@ -1,0 +1,13 @@
+.scrollbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 950;
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--lime-deep), var(--lime));
+  box-shadow: 0 0 14px rgba(198, 242, 78, 0.6);
+}
+
+main { position: relative; z-index: 1; }

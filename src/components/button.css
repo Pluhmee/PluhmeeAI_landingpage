@@ -1,0 +1,86 @@
+.mag-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 40px;
+  border-radius: 999px;
+  overflow: hidden;
+  isolation: isolate;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.mag-btn__inner {
+  position: relative;
+  display: grid;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.mag-btn__label {
+  grid-area: 1 / 1;
+  display: block;
+  transition: transform 0.55s var(--ease), opacity 0.4s var(--ease);
+}
+
+.mag-btn__label--ghost {
+  transform: translateY(115%);
+}
+
+.mag-btn:hover .mag-btn__label {
+  transform: translateY(-115%);
+}
+.mag-btn:hover .mag-btn__label--ghost {
+  transform: translateY(0);
+}
+
+.mag-btn__fill {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+  transform: scale(0.2);
+  opacity: 0;
+  transition: transform 0.6s var(--ease), opacity 0.45s var(--ease);
+}
+
+.mag-btn:hover .mag-btn__fill {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* lime */
+.mag-lime {
+  color: #0a0d09;
+  background: linear-gradient(105deg, var(--lime) 0%, var(--lime-deep) 100%);
+  box-shadow: 0 14px 40px -14px rgba(198, 242, 78, 0.7);
+}
+.mag-lime .mag-btn__fill {
+  background: linear-gradient(105deg, #e6ff9b 0%, var(--lime) 100%);
+}
+
+/* ghost */
+.mag-ghost {
+  color: var(--ink);
+  border: 1px solid var(--stroke);
+  backdrop-filter: blur(14px);
+  background: rgba(255, 255, 255, 0.04);
+}
+.mag-ghost .mag-btn__fill { background: rgba(255, 255, 255, 0.1); }
+
+/* dark */
+.mag-dark {
+  color: var(--ink);
+  background: #10160f;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+.mag-dark .mag-btn__fill { background: #182014; }
+
+@media (max-width: 700px) {
+  .mag-btn { padding: 17px 30px; font-size: 14px; }
+}
